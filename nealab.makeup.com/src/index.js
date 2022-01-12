@@ -10,23 +10,35 @@ import Portfolio from './routes/portfolio';
 import Reviews from './routes/reviews';
 import Portal from './routes/portal';
 import Dashboard from "./routes/dashboard"
+import { AuthProvider } from './contexts/AuthContext';
+import PrivateRoute from './firebase/privateRoute';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <AuthProvider>
 
     <Routes>
+
       <Route path="/" element={<Homepage />} />
       <Route path="/services" element={<Services />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/reviews" element={<Reviews />} />
       <Route path="/admin" element={<Portal />} />
+      <Route path="/dashboard" element= {
+        <PrivateRoute>
 
+        <Dashboard />
+        </PrivateRoute>
 
+      }
+      />
       </Routes>
+      </AuthProvider>
 
     </BrowserRouter>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
