@@ -43,54 +43,57 @@ export default function Contact() {
   };
 
   return (
-<div className={
-      menu || enquireForm
-        ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
-        : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
-    }>
-      <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
-      <EnquireForm
-        node={enquireFormNode}
-        setEnquireForm={setEnquireForm}
-        enquireForm={enquireForm}
-      />
-      
-        <div className="pt-5 px-5">
-          <Header menu={menu} setMenu={setMenu} contact={true} />
-        </div>
-
-        <div className="flex flex-col items-center w-full h-4/6 mt-10">
-          <img
-            src="../nealab.jpg"
-            alt="nealab"
-            className=" w-3/4 md:w-3/5 lg:w-1/5 rounded-lg"
-          />
-
-          <div className="mt-4 text-center">
-            <EnquireButton
-              node={enquireButtonNode}
-              enquireForm={enquireForm}
-              setEnquireForm={setEnquireForm}
+<div className="font-Rasa text-NealabDarkPink h-screen w-full">
+<NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
+        <EnquireForm
+          node={enquireFormNode}
+          setEnquireForm={setEnquireForm}
+          enquireForm={enquireForm}
+        />
+  <div className={
+        menu || enquireForm
+          ? "opacity-50 transition-opacity ease-in-out duration-1000"
+          : "opacity-100 transition-opacity ease-in-out duration-1000"
+      }>
+        
+  
+          <div className="pt-5 px-5">
+            <Header menu={menu} setMenu={setMenu} contact={true} />
+          </div>
+  
+          <div className="flex flex-col items-center w-full h-4/6 mt-10">
+            <img
+              src="../nealab.jpg"
+              alt="nealab"
+              className=" w-3/4 md:w-3/5 lg:w-1/5 rounded-lg"
             />
+  
+            <div className="mt-4 text-center">
+              <EnquireButton
+                node={enquireButtonNode}
+                enquireForm={enquireForm}
+                setEnquireForm={setEnquireForm}
+              />
+            </div>
+            <div className="ml-3 flex flex-row mt-5">
+              <a
+                href="https://www.instagram.com/neala_makeupartistry/"
+                className="hover:scale-125"
+              >
+                {Logo.largeInstagram}
+              </a>
+              <a
+                href="https://www.facebook.com/nealamakeupartistry"
+                className="hover:scale-125"
+              >
+                {Logo.largeFacebook}
+              </a>
+  
+            </div>
+            <p className="mt-3 md:mt-10">nealab.makeup@gmail.com</p>
           </div>
-          <div className="ml-3 flex flex-row mt-5">
-            <a
-              href="https://www.instagram.com/neala_makeupartistry/"
-              className="hover:scale-125"
-            >
-              {Logo.largeInstagram}
-            </a>
-            <a
-              href="https://www.facebook.com/nealamakeupartistry"
-              className="hover:scale-125"
-            >
-              {Logo.largeFacebook}
-            </a>
-
-          </div>
-          <p className="mt-3 md:mt-10">nealab.makeup@gmail.com</p>
-        </div>
-   
-    </div>
+  
+      </div>
+</div>
   );
 }

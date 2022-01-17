@@ -43,19 +43,20 @@ export default function Homepage() {
   };
 
   return (
-    <div className={
-      menu || enquireForm
-        ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
-        : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
-    }>
-      <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
-      <EnquireForm
-        node={enquireFormNode}
-        setEnquireForm={setEnquireForm}
-        enquireForm={enquireForm}
-      />
+    <div className="font-Rasa text-NealabDarkPink h-screen w-full ">
+    
+        <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
+        <EnquireForm
+          node={enquireFormNode}
+          setEnquireForm={setEnquireForm}
+          enquireForm={enquireForm}
+        />
 
-   
+        <div className={
+          menu || enquireForm
+            ? "opacity-50 transition-opacity ease-in-out duration-1000"
+            : "opacity-100 transition-opacity ease-in-out duration-1000"
+        }>
         <div className="pt-5 px-5">
           <Header menu={menu} setMenu={setMenu} />
         </div>
@@ -77,6 +78,7 @@ export default function Homepage() {
         <div className="text-center text-sm pt-20">
           <Footer />
         </div>
+      </div>
       </div>
   );
 }
