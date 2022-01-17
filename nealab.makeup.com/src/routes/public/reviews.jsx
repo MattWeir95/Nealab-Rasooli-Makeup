@@ -40,15 +40,15 @@ export default function Reviews() {
   };
 
   return (
-    <div className="">
+    <div
+    className={
+      menu
+        ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
+        : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
+    }
+  >
       <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
-      <div
-        className={
-          menu
-            ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
-            : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
-        }
-      >
+      
         <div id="fb-root"></div>
         <script
           async
@@ -85,6 +85,5 @@ export default function Reviews() {
             : null}
         </div>
       </div>
-    </div>
   );
 }

@@ -43,20 +43,18 @@ export default function Contact() {
   };
 
   return (
-    <div className="">
+<div className={
+      menu || enquireForm
+        ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
+        : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
+    }>
       <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
       <EnquireForm
         node={enquireFormNode}
         setEnquireForm={setEnquireForm}
         enquireForm={enquireForm}
       />
-      <div
-        className={
-          menu || enquireForm
-            ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
-            : "font-Rasa text-NealabDarkPink h-screen w-full  opacity-100 transition-opacity ease-in-out duration-1000"
-        }
-      >
+      
         <div className="pt-5 px-5">
           <Header menu={menu} setMenu={setMenu} contact={true} />
         </div>
@@ -75,7 +73,7 @@ export default function Contact() {
               setEnquireForm={setEnquireForm}
             />
           </div>
-          <div className="flex-row flex justify-center items-center mt-5">
+          <div className="ml-3 flex flex-row mt-5">
             <a
               href="https://www.instagram.com/neala_makeupartistry/"
               className="hover:scale-125"
@@ -89,11 +87,10 @@ export default function Contact() {
               {Logo.largeFacebook}
             </a>
 
-            <button className="hover:scale-125">{Logo.email}</button>
           </div>
           <p className="mt-3 md:mt-10">nealab.makeup@gmail.com</p>
         </div>
-      </div>
+   
     </div>
   );
 }

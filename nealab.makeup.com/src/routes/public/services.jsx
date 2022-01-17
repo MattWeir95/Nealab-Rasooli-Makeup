@@ -57,7 +57,13 @@ export default function Services() {
   };
 
   return (
-    <div className="">
+    <div
+    className={
+      menu || enquireForm
+      ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
+      : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
+    }
+  >
       <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
       <EnquireForm
         node={enquireFormNode}
@@ -65,13 +71,7 @@ export default function Services() {
         enquireForm={enquireForm}
       />
 
-      <div
-        className={
-          menu || enquireForm
-          ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
-          : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
-        }
-      >
+
         <div className="pt-5 px-5">
           <Header menu={menu} setMenu={setMenu} />
         </div>
@@ -102,7 +102,7 @@ export default function Services() {
             })}
           </div>
         </div>
-        <div className="text-xl text-center">
+        <div className="text-xl flex justify-center items-center">
           <EnquireButton
             node={enquireButtonNode}
             enquireForm={enquireForm}
@@ -110,6 +110,5 @@ export default function Services() {
           />
         </div>
       </div>
-    </div>
   );
 }

@@ -43,7 +43,11 @@ export default function Homepage() {
   };
 
   return (
-    <div className="">
+    <div className={
+      menu || enquireForm
+        ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
+        : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
+    }>
       <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
       <EnquireForm
         node={enquireFormNode}
@@ -51,13 +55,7 @@ export default function Homepage() {
         enquireForm={enquireForm}
       />
 
-      <div
-        className={
-          menu || enquireForm
-            ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
-            : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
-        }
-      >
+   
         <div className="pt-5 px-5">
           <Header menu={menu} setMenu={setMenu} />
         </div>
@@ -69,7 +67,7 @@ export default function Homepage() {
           <PhotoSlider enquireForm={enquireForm} />
         </div>
 
-        <div className="text-center pt-20 text-xl">
+        <div className="flex justify-center items-center  pt-20 text-xl">
           <EnquireButton
             node={enquireButtonNode}
             enquireForm={enquireForm}
@@ -80,6 +78,5 @@ export default function Homepage() {
           <Footer />
         </div>
       </div>
-    </div>
   );
 }
