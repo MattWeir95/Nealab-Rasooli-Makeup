@@ -77,11 +77,10 @@ export default function NavMenu(props) {
         >
           Contact
         </NavLink>
-      </div>
-      <div className="ml-5 text-white flex flex-col fixed bottom-20 left">
+        <div className="ml-2 mt-10 text-white flex flex-row  items-center">
         <a
           href="https://www.instagram.com/neala_makeupartistry/"
-          className="my-5 hover:scale-125"
+          className="hover:scale-125 mr-5"
         >
           {Logo.instagram}
         </a>
@@ -92,6 +91,8 @@ export default function NavMenu(props) {
           {Logo.facebook}
         </a>
       </div>
+      </div>
+      
     </div>
   );
 }
