@@ -62,21 +62,21 @@ export default function Homepage() {
           <Header menu={menu} setMenu={setMenu} />
         </div>
 
-        <div className="text-center text-4xl mt-20 mx-4 lg:mt-10 md:mt-10">
+        <div className="text-center text-4xl pt-20 mx-4 lg:pt-10 md:pt-10">
           Professional Makeup Artist
         </div>
-        <div className="z-0 mt-10 mx-5 md:mx-10 lg:mx-10">
+        <div className="z-0 pt-10 mx-5 md:mx-10 lg:mx-10">
           <PhotoSlider enquireForm={enquireForm} />
         </div>
 
-        <div className="flex justify-center mt-20 md:mt-15 lg:mt-20 text-xl">
+        <div className="text-center pt-20 text-xl">
           <EnquireButton
             node={enquireButtonNode}
             enquireForm={enquireForm}
             setEnquireForm={setEnquireForm}
           />
         </div>
-        <div className="flex justify-center text-sm mt-20 md:mt-10 lg:mt-10">
+        <div className="text-center text-sm pt-20">
           <Footer />
         </div>
       </div>

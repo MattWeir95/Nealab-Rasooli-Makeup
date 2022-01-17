@@ -10,7 +10,7 @@ export default function NavMenu(props) {
       className={
         props.menu
           ? "font-Rasa fixed z-10  w-3/4 h-screen md:translate-x-full lg:translate-x-full bg-NealabPink transition ease-in-out right-0 delay-150"
-          : "font-Rasa fixed z-10  w-3/4 h-screen md:translate-x-full lg:translate-x-full bg-NealabPink translate-x-full transition ease-in-out right-0 delay-150"
+          : "font-Rasa fixed z-10  w-3/4 h-screen  bg-NealabPink translate-x-full transition ease-in-out right-0 "
       }
     >
       <div className="flex flex-col text-white text-lg mt-5 ml-4">
@@ -78,7 +78,7 @@ export default function NavMenu(props) {
           Contact
         </NavLink>
       </div>
-      <div className="ml-5 text-white flex flex-col fixed bottom-20 left translate-x-1/2">
+      <div className="ml-5 text-white flex flex-col fixed bottom-20 left">
         <a
           href="https://www.instagram.com/neala_makeupartistry/"
           className="my-5 hover:scale-125"

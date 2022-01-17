@@ -21,7 +21,7 @@ export default function EnquireForm(props) {
       className={
         props.enquireForm
           ? "font-Rasa fixed z-10 w-3/4 md:w-1/2 lg:w-1/4 h-screen bg-NealabPink transition ease-in-out right-0 delay-150"
-          : "font-Rasa fixed z-10 w-3/4 md:w-1/2 lg:w-1/4 h-screen md:translate-x-full right-0 lg:translate-x-full bg-NealabPink translate-x-full transition ease-in-out delay-150"
+          : "font-Rasa fixed z-10 w-3/4 md:w-1/2 lg:w-1/4 h-screen right-0  bg-NealabPink translate-x-full transition ease-in-out"
       }
     >
       <div className="flex flex-col text-white text-lg mt-5 ml-4">

@@ -76,7 +76,7 @@ export default function Services() {
           <Header menu={menu} setMenu={setMenu} />
         </div>
 
-        <div className="block ml-auto mr-auto w-3/4 md:w-3/4 lg:w-1/2 mt-10 h-5/6">
+        <div className="block ml-auto mr-auto w-4/5 md:w-3/4 lg:w-1/2 mt-10 h-4/6">
           <div id="portfolio" className="h-5/6 overflow-y-auto px-4">
             {serviceList.map((service, i) => {
               return (
@@ -102,7 +102,7 @@ export default function Services() {
             })}
           </div>
         </div>
-        <div className="text-xl fixed bottom-5 md:bottom-10 lg:bottom-10 left-1/2 -translate-x-1/2">
+        <div className="text-xl text-center">
           <EnquireButton
             node={enquireButtonNode}
             enquireForm={enquireForm}
