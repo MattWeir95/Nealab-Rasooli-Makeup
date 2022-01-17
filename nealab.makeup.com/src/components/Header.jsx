@@ -37,15 +37,16 @@ export default function Header(props) {
                 </div>
 
             </div>
-            <div className="hidden md:flex md:flex-row lg:flex lg:flex-row justify-center items-center">
+            {props.contact  ? <div className=""></div> : <div className="hidden md:flex md:flex-row lg:flex lg:flex-row justify-center items-center">
 
-                <a href="https://www.instagram.com/neala_makeupartistry/" className="mx-2 hover:scale-125">
-                    {Logo.instagram}
-                </a>
-                <a href="https://www.facebook.com/nealamakeupartistry" className="mx-2 hover:scale-125">{Logo.facebook}</a>
+<a href="https://www.instagram.com/neala_makeupartistry/" className="mx-2 hover:scale-125">
+    {Logo.instagram}
+</a>
+<a href="https://www.facebook.com/nealamakeupartistry" className="mx-2 hover:scale-125">{Logo.facebook}</a>
 
 
-            </div>
+</div> }
+            
             <div className={ "flex justify-center items-center md:hidden lg:hidden"} >
                 <button onClick={() => props.setMenu(!props.menu)}className="">{Logo.hamburgerMenu}</button>
             </div>

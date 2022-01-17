@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import Contact from "./routes/contact";
-import Services from "./routes/services";
-import Homepage from './routes/homepage';
-import Portfolio from './routes/portfolio';
-import Reviews from './routes/reviews';
-import Portal from './routes/portal';
-import Dashboard from "./routes/dashboard"
+import Contact from "./routes/public/contact";
+import Services from "./routes/public/services";
+import Homepage from './routes/public/homepage';
+import Portfolio from './routes/public/portfolio';
+import Reviews from './routes/public/reviews';
+import Portal from './routes/public/portal';
+import Dashboard from "./routes/private/dashboard"
 import { AuthProvider } from './contexts/AuthContext';
 import PrivateRoute from './firebase/privateRoute';
+import AdminServices from './routes/private/adminServices';
+import AdminPortfolio from './routes/private/adminPortfolio';
+import AdminReviews from './routes/private/adminReviews';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -30,10 +33,47 @@ ReactDOM.render(
         <PrivateRoute>
 
         <Dashboard />
+        
         </PrivateRoute>
 
       }
+      
       />
+
+
+    <Route path="/dashboard/services" element={
+        <PrivateRoute>
+
+        <AdminServices />
+        
+        </PrivateRoute>
+
+      }
+      
+      />
+
+<Route path="/dashboard/portfolio" element={
+        <PrivateRoute>
+
+        <AdminPortfolio />
+        
+        </PrivateRoute>
+
+      }
+      
+      />
+
+<Route path="/dashboard/reviews" element={
+        <PrivateRoute>
+
+        <AdminReviews />
+        
+        </PrivateRoute>
+
+      }
+      
+      />
+
       </Routes>
       </AuthProvider>
 

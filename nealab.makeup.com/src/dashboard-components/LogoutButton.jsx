@@ -14,7 +14,7 @@ export default function LogoutButton(){
 
     return (
         <div className="">
-            <button onClick={handleLogout} className="">Log out</button>
+            <button onClick={handleLogout} className="hover:font-bold hover:scale-105">Log out</button>
         </div>
     )
 }

@@ -6,10 +6,16 @@ export default function NavMenu(props){
     let Logo = getLogos();
 
     var active = props.active;
+
     return (
-        <div className={active? "fixed z-10 w-3/4 h-screen md:-translate-x-full lg:-translate-x-full bg-NealabPink transition ease-in-out delay-150" : "fixed z-10 w-1/2 h-screen md:-translate-x-full lg:-translate-x-full bg-NealabPink -translate-x-full "}>
+        <div className={active? "  font-Rasa fixed right-0 z-10 w-3/4 h-screen md:translate-x-full lg:translate-x-full bg-NealabPink transition ease-in-out " : " font-Rasa fixed z-10 right-0 h-screen md:translate-x-full lg:translate-x-full bg-NealabPink translate-x-full transition ease-in-out"}>
         <div className="flex flex-col text-white text-lg mt-5 ml-4">
-        <NavLink className="whitespace-nowrap text-3xl px-2 hover:font-bold hover:cursor-pointer mb-10" to="/">Nealab Rasooli</NavLink>
+            <div className="flex flex-row justify-between">
+        <NavLink className="whitespace-nowrap text-3xl hover:font-bold hover:cursor-pointer mb-10" to="/">Nealab Rasooli</NavLink>
+        <button onClick={() => {
+            props.setMenu(false);
+        }} className="text-white flex jusify-center items-center mb-10 mr-6">{Logo.cross}</button>
+            </div>
 
         <NavLink onClick={() => props.setMenu(!props.menu)} style={({ isActive }) => {
                         return {
@@ -33,7 +39,7 @@ export default function NavMenu(props){
                         };
                     }} className="px-2 hover:font-bold hover:cursor-pointer hover:scale-105" to="/contact">Contact</NavLink>
         </div>
-        <div className="text-white flex flex-col fixed bottom-20 left-14 -translate-x-1/2">
+        <div className="ml-5 text-white flex flex-col fixed bottom-20 left translate-x-1/2">
 
 <a href="https://www.instagram.com/neala_makeupartistry/" className="my-5 hover:scale-125">
     {Logo.instagram}

@@ -1,28 +1,50 @@
+import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { db } from "../firebase/firebase";
+export default function PhotoSlider(props){
+  const [photos, setPhotos] = useState([])
 
-export default function PhotoSlider(){
 
+  useEffect(() => {
+      let data = [];
+
+      db.collection("photos")
+          .get()
+          .then((PhotoData) => {
+              PhotoData.docs.forEach((doc) => {
+                  data.push(doc.data());
+              });
+          })
+          .then((e) => {
+              setPhotos(data);
+            
+          });
+  }, []);
 
   return (
     <Carousel
-  swipeable={true}
-  draggable={true}
+    arrows={props.enquireForm ? false : true}
+  swipeable={false}
+  draggable={false}
   responsive={responsive}
   infinite={true}
   removeArrowOnDeviceType={["tablet", "mobile"]}
   centerMode={true}
+  
 >
 
-{PortfolioPhotos.map((photo) => {
+{photos.map((photo, i) => {
     return (
-<img src={photo.link} alt={photo.name} className="px-2 max-h-1/2" />
+<img key={i} src={photo.url} alt={photo.name} className="px-2 max-h-1/2" />
 
     )
 })}
 </Carousel>
   )
 };
+
+
 
 
 const responsive = {
@@ -44,28 +66,4 @@ const responsive = {
   };
 
 
-  var PortfolioPhotos = [{
-    name: "watch",
-    link: "../photos/mckenzie.png"
-},  {
-    name: "watch",
-    link: "../photos/nealab_lashes.png"
-}, {
-    name: "watch",
-    link: "../photos/mckenzie.png"
-}, {
-    name: "watch",
-    link: "../photos/nealab_lashes.png"
-}, {
-    name: "watch",
-    link: "../photos/mckenzie.png"
-},  {
-    name: "watch",
-    link: "../photos/nealab_lashes.png"
-}, {
-    name: "watch",
-    link: "../photos/mckenzie.png"
-}, {
-    name: "watch",
-    link: "../photos/nealab_lashes.png"
-},]
+  
