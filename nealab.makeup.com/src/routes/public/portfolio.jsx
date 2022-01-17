@@ -28,8 +28,8 @@ export default function Portfolio() {
       <div
         className={
           menu
-            ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50"
-            : "font-Rasa text-NealabDarkPink h-screen w-full  "
+          ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
+          : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
         }
       >
         <div className="pt-5 px-5">

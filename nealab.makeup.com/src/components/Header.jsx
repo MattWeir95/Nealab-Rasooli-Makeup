@@ -7,7 +7,7 @@ export default function Header(props) {
     <div className="flex flex-row justify-between">
       <div className="flex flex-row">
         <NavLink
-          className="text-3xl px-2 hover:font-bold hover:cursor-pointer"
+          className="text-3xl  hover:cursor-pointer"
           to="/"
         >
           Nealab Rasooli
