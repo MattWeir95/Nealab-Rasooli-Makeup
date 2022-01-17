@@ -43,7 +43,7 @@ export default function Contact() {
   };
 
   return (
-<div className="font-Rasa text-NealabDarkPink h-screen w-full">
+<div className="font-Rasa text-NealabDarkPink h-screen w-full ">
 <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
         <EnquireForm
           node={enquireFormNode}
@@ -52,8 +52,8 @@ export default function Contact() {
         />
   <div className={
         menu || enquireForm
-          ? "opacity-50 transition-opacity ease-in-out duration-1000"
-          : "opacity-100 transition-opacity ease-in-out duration-1000"
+          ? "opacity-50 transition-opacity ease-in-out duration-500 h-full"
+          : "opacity-100 transition-opacity ease-in-out duration-500 h-full"
       }>
         
   
@@ -65,7 +65,7 @@ export default function Contact() {
             <img
               src="../nealab.jpg"
               alt="nealab"
-              className=" w-3/4 md:w-3/5 lg:w-1/5 rounded-lg"
+              className=" w-3/4 md:w-3/5 lg:w-1/5 rounded"
             />
   
             <div className="mt-4 text-center">

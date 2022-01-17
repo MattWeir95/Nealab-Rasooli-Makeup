@@ -86,7 +86,7 @@ export default function EnquireForm(props) {
               className="rounded border border-NealabPink"
               required
             >
-              {" "}
+         
             </textarea>
 
             <div className="mt-4 flex justify-center items-center">

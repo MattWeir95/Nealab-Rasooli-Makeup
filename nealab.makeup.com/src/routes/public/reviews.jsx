@@ -46,8 +46,8 @@ export default function Reviews() {
       <div
       className={
         menu
-          ? "opacity-50 transition-opacity ease-in-out duration-1000"
-          : "opacity-100 transition-opacity ease-in-out duration-1000"
+          ? "opacity-50 transition-opacity ease-in-out duration-500 h-full"
+          : "opacity-100 transition-opacity ease-in-out duration-500 h-full"
       }
         >
       
@@ -55,7 +55,7 @@ export default function Reviews() {
           <script
             async
             defer
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
             src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0"
             nonce="LoyPs2Dr"
           ></script>
@@ -76,8 +76,8 @@ export default function Reviews() {
                         width="335"
                         height="350"
                         scrolling="no"
-                        frameborder="0"
-                        allowfullscreen="true"
+                        frameBorder="0"
+                        allowFullScreen={true}
                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                       ></iframe>
                     </div>

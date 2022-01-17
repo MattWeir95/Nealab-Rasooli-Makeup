@@ -68,8 +68,8 @@ export default function Services() {
       <div
       className={
         menu || enquireForm
-        ? "opacity-50 transition-opacity ease-in-out duration-1000"
-        : "opacity-100 transition-opacity ease-in-out duration-1000"
+        ? "opacity-50 transition-opacity ease-in-out duration-500 h-full"
+        : "opacity-100 transition-opacity ease-in-out duration-500 h-full"
       }
         >
         
@@ -77,7 +77,7 @@ export default function Services() {
             <Header menu={menu} setMenu={setMenu} />
           </div>
           <div className="block ml-auto mr-auto w-4/5 md:w-3/4 lg:w-1/2 mt-10 h-4/6">
-            <div id="portfolio" className="h-5/6 overflow-y-auto px-4">
+            <div id="portfolio" className="h-4/6 overflow-y-auto px-4">
               {serviceList.map((service, i) => {
                 return (
                   <div key={i} className="mb-2">

@@ -44,24 +44,24 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="font-Rasa text-NealabDarkPink h-screen w-full ">
+    <div className="font-Rasa text-NealabDarkPink h-screen w-full overflow-y-hidden">
         <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
    
       <div
       className={
         menu
-        ? "opacity-50 transition-opacity ease-in-out duration-1000"
-        : "opacity-100 transition-opacity ease-in-out duration-1000"
+        ? "opacity-50 transition-opacity ease-in-out duration-500 h-full"
+        : "opacity-100 transition-opacity ease-in-out duration-500 h-full"
       }
         >
       
           <div className="pt-5 px-5">
             <Header menu={menu} setMenu={setMenu} />
           </div>
-          <div className="pt-10 mx-5 h-5/6">
+          <div className="pt-10 mx-5 h-full">
             <div
               id="portfolio"
-              className="container mx-auto grid lg:gap-2 lg:grid lg:grid-cols-3 md:gap-1 md:grid md:grid-cols-2  overflow-y-auto h-full px-2"
+              className="container mx-auto grid lg:gap-2 lg:grid lg:grid-cols-3 md:gap-1 md:grid md:grid-cols-2  h-5/6 overflow-y-auto px-2"
             >
               {photos.map((photo, i) => {
                 return (
