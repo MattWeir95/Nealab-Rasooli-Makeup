@@ -5,10 +5,9 @@ import getLogos from "../resources/Logos";
 export default function NavMenu(props){
     let Logo = getLogos();
 
-    var active = props.active;
 
     return (
-        <div className={active? "  font-Rasa fixed right-0 z-10 w-3/4 h-screen md:translate-x-full lg:translate-x-full bg-NealabPink transition ease-in-out " : " font-Rasa fixed z-10 right-0 h-screen md:translate-x-full lg:translate-x-full bg-NealabPink translate-x-full transition ease-in-out"}>
+        <div className={props.menu? "  font-Rasa fixed right-0 z-10 w-3/4 h-screen md:translate-x-full lg:translate-x-full bg-NealabPink transition ease-in-out " : " font-Rasa fixed z-10 right-0 h-screen md:translate-x-full lg:translate-x-full bg-NealabPink translate-x-full transition ease-in-out"}>
         <div className="flex flex-col text-white text-lg mt-5 ml-4">
             <div className="flex flex-row justify-between">
         <NavLink className="whitespace-nowrap text-3xl hover:font-bold hover:cursor-pointer mb-10" to="/">Nealab Rasooli</NavLink>

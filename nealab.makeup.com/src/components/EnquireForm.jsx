@@ -10,7 +10,6 @@ export default function EnquireForm(props){
 
     let Logo = getLogos();
 
-    var active = props.enquireForm;
 
     function HandleSubmit(e){
         e.preventDefault();
@@ -19,7 +18,7 @@ export default function EnquireForm(props){
 
 
     return (
-        <div ref={props.node} className={active? "font-Rasa fixed z-10 w-3/4 md:w-1/2 lg:w-1/4 h-screen bg-NealabPink transition ease-in-out right-0" : "font-Rasa fixed z-10 w-3/4 md:w-1/2 lg:w-1/4 h-screen md:translate-x-full right-0 lg:translate-x-full bg-NealabPink translate-x-full transition ease-in-out"}>
+        <div ref={props.node} className={props.enquireForm? "font-Rasa fixed z-10 w-3/4 md:w-1/2 lg:w-1/4 h-screen bg-NealabPink transition ease-in-out right-0" : "font-Rasa fixed z-10 w-3/4 md:w-1/2 lg:w-1/4 h-screen md:translate-x-full right-0 lg:translate-x-full bg-NealabPink translate-x-full transition ease-in-out"}>
         <div className="flex flex-col text-white text-lg mt-5 ml-4">
         <div className="flex flex-row justify-around">
         <NavLink className="whitespace-nowrap text-3xl hover:font-bold hover:cursor-pointer mb-10" to="/">Nealab Rasooli</NavLink>
