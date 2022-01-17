@@ -22,14 +22,13 @@ export default function PhotoSlider(props) {
 
   return (
     <Carousel
-      arrows={props.enquireForm ? false : true}
+      arrows={false}
       swipeable={false}
       draggable={false}
       responsive={responsive}
       infinite={true}
-      removeArrowOnDeviceType={["tablet", "mobile"]}
       autoPlay={true}
-      centerMode={true}
+      centerMode={false}
       autoPlaySpeed={3000}
       transitionDuration={2000}
       ssr={true}

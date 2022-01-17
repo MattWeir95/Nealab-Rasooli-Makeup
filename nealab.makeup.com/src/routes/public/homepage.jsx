@@ -43,7 +43,7 @@ export default function Homepage() {
   };
 
   return (
-    <div className="font-Rasa text-NealabDarkPink h-screen w-full overflow-y-hidden">
+    <div className="font-Rasa text-NealabDarkPink h-screen w-full">
     
         <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
         <EnquireForm
@@ -57,28 +57,33 @@ export default function Homepage() {
             ? "opacity-50 transition-opacity ease-in-out duration-500 h-full"
             : "opacity-100 transition-opacity ease-in-out duration-500 h-full"
         }>
-        <div className="pt-5 px-5">
+        <div className="pt-5 px-5 ">
           <Header menu={menu} setMenu={setMenu} />
+          
         </div>
-
-        <div className="text-center text-4xl pt-10 mx-4 lg:pt-10 md:pt-10">
-          Professional Makeup Artist
-        </div>
-        <div className="z-0 pt-10 mx-5 md:mx-10 lg:mx-10">
+        <div className="flex flex-col items-center justify-center w-full h-4/6 ">
+        <p className="text-3xl text-center lg:text-5xl">Professional Makeup Artist</p>
+        <div className="pt-5 z-0 h-4/6 w-5/6">
           <PhotoSlider enquireForm={enquireForm} />
         </div>
+        
+        
+        
 
-        <div className="flex justify-center items-center  pt-10 text-xl">
-          <EnquireButton
+        </div>
+        <div className="text-center py-5">
+          <div className="mt-2 "><EnquireButton
             node={enquireButtonNode}
             enquireForm={enquireForm}
             setEnquireForm={setEnquireForm}
-          />
+          /></div>
+        <Footer />
+
         </div>
-        <div className="text-center text-sm pt-10">
-          <Footer />
         </div>
-      </div>
+      
+
+          
       </div>
   );
 }
