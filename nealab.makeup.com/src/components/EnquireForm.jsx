@@ -25,7 +25,7 @@ export default function EnquireForm(props) {
       }
     >
       <div className="flex flex-col text-white text-lg mt-5 ml-4">
-        <div className="flex flex-row justify-around">
+        <div className="flex flex-row justify-between">
           <NavLink
             className="whitespace-nowrap text-3xl hover:font-bold hover:cursor-pointer mb-10"
             to="/"

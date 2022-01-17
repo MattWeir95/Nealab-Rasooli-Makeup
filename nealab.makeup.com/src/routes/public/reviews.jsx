@@ -1,11 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../../components/Header";
 import NavMenu from "../../components/NavMenu";
 import { db } from "../../firebase/firebase";
 export default function Reviews() {
   const [menu, setMenu] = useState(false);
   const [reviews, setReviews] = useState();
+
+  const menuNode = useRef();
+
   useEffect(() => {
+    document.addEventListener("mousedown", handleClick);
+
     let data = [];
     db.collection("reviews")
       .get()
@@ -17,16 +22,31 @@ export default function Reviews() {
       .then((e) => {
         setReviews(data);
       });
+
+          return () => {
+        document.removeEventListener("mousedown", handleClick);
+      };
+
   }, []);
+
+  const handleClick = (e) => {
+    
+
+    if (menuNode.current.contains(e.target)) {
+      return;
+    } else {
+      setMenu(false);
+    }
+  };
 
   return (
     <div className="">
-      <NavMenu setMenu={setMenu} menu={menu} />
+      <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
       <div
         className={
           menu
-          ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
-          : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
+            ? "font-Rasa text-NealabDarkPink h-screen w-full opacity-50 transition-opacity ease-in-out duration-1000"
+            : "font-Rasa text-NealabDarkPink h-screen w-full opacity-100 transition-opacity ease-in-out duration-1000"
         }
       >
         <div id="fb-root"></div>

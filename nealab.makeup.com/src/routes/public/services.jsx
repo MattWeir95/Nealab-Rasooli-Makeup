@@ -13,6 +13,9 @@ export default function Services() {
   const enquireFormNode = useRef();
   const enquireButtonNode = useRef();
 
+  const menuNode = useRef();
+
+
   useEffect(() => {
     //Event listeners for closing NavMenu & EnquireForm
     document.addEventListener("mousedown", handleClick);
@@ -42,13 +45,20 @@ export default function Services() {
       enquireButtonNode.current.contains(e.target)
     ) {
       return;
+    } else {
+      setEnquireForm(false);
     }
-    setEnquireForm(false);
+
+    if (menuNode.current.contains(e.target)) {
+      return;
+    } else {
+      setMenu(false);
+    }
   };
 
   return (
     <div className="">
-      <NavMenu setMenu={setMenu} menu={menu} />
+      <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
       <EnquireForm
         node={enquireFormNode}
         setEnquireForm={setEnquireForm}

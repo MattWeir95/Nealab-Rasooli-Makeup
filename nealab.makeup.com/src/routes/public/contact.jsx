@@ -14,6 +14,8 @@ export default function Contact() {
   const enquireFormNode = useRef();
   const enquireButtonNode = useRef();
 
+  const menuNode = useRef();
+
   //Add a mouse down listener to the Homepage component, remove on demount.
   useEffect(() => {
     document.addEventListener("mousedown", handleClick);
@@ -23,20 +25,26 @@ export default function Contact() {
     };
   }, []);
 
-  //Closes Enquireform if clicked on the homepage div, doesnt work if you click on the enquire button.
   const handleClick = (e) => {
     if (
       enquireFormNode.current.contains(e.target) ||
       enquireButtonNode.current.contains(e.target)
     ) {
       return;
+    } else {
+      setEnquireForm(false);
     }
-    setEnquireForm(false);
+
+    if (menuNode.current.contains(e.target)) {
+      return;
+    } else {
+      setMenu(false);
+    }
   };
 
   return (
     <div className="">
-      <NavMenu setMenu={setMenu} menu={menu} />
+      <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
       <EnquireForm
         node={enquireFormNode}
         setEnquireForm={setEnquireForm}
