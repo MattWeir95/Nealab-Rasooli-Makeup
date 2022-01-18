@@ -43,7 +43,7 @@ export default function Homepage() {
   };
 
   return (
-    <div className="font-Rasa text-NealabDarkPink h-screen w-full">
+    <div className="font-Rasa text-NealabDarkPink h-customHeight w-full">
     
         <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
         <EnquireForm
@@ -71,7 +71,7 @@ export default function Homepage() {
         
 
         </div>
-        <div className="text-center py-5">
+        <div className="text-center py-5 lg:pt-20">
           <div className="mt-2 "><EnquireButton
             node={enquireButtonNode}
             enquireForm={enquireForm}

@@ -44,7 +44,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="font-Rasa text-NealabDarkPink h-screen w-full overflow-y-hidden">
+    <div className="font-Rasa text-NealabDarkPink h-customHeight w-full overflow-y-hidden">
         <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
    
       <div

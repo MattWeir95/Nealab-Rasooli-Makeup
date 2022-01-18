@@ -4,6 +4,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        'customHeight' : "calc(100vh - 57px)"
+      },
       colors: {
         NealabDarkRed : '#2E1114',
         NealabRed: '#501B1D',

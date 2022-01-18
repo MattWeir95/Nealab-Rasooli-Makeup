@@ -43,7 +43,7 @@ export default function Contact() {
   };
 
   return (
-<div className="font-Rasa text-NealabDarkPink h-screen w-full ">
+<div className="font-Rasa text-NealabDarkPink h-customHeight w-full ">
 <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
         <EnquireForm
           node={enquireFormNode}
@@ -91,6 +91,9 @@ export default function Contact() {
   
             </div>
             <p className="mt-3 md:mt-10">nealab.makeup@gmail.com</p>
+           
+            <p className="mt-3">0452519296</p>
+
           </div>
   
       </div>

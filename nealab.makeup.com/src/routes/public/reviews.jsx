@@ -40,7 +40,7 @@ export default function Reviews() {
   };
 
   return (
-    <div className="font-Rasa text-NealabDarkPink h-screen w-full">
+    <div className="font-Rasa text-NealabDarkPink h-customHeight w-full">
         <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
 
       <div
