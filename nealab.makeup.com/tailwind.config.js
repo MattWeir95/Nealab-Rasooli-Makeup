@@ -12,7 +12,8 @@ module.exports = {
         NealabRed: '#501B1D',
         NealabDarkPink: '#64485C',
         NealabPink: '#83677B',
-        NealabGray: '#ADADAD'
+        NealabGray: '#ADADAD',
+        NealabLightPurple: "rgba(197, 179, 227, 0.3)"
       },
       fontFamily: {
         Rasa: ["Rasa", 'serif'],

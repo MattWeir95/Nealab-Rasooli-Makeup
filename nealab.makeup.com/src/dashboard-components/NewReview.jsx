@@ -1,47 +1,82 @@
 import { useEffect, useState } from "react";
 import getLogos from "../resources/Logos";
 import { storeReview } from "../firebase/storeReview";
-
+import { db } from "../firebase/firebase";
 
 
 export default function NewReview(props) {
 
-    const [iFrame, setIframe] = useState();
+    const [text, setText] = useState();
+    const [name, setName] = useState();
+    const [date, setDate] = useState();
+    const [image, setImage] = useState();
 
+    const [photos, setPhotos] = useState();
     let Logos = getLogos();
 
     useEffect(() => {
+        let data = [];
 
+        db.collection("photos")
+            .get()
+            .then((PhotoData) => {
+                PhotoData.docs.forEach((doc) => {
+                    data.push(doc.data());
+                });
+            })
+            .then((e) => {
+                setPhotos(data);
+            });
     }, [props.reload])
 
     return (
-        <div className="ml-5 border border-NealabDarkRed shadow-xl rounded w-1/4 h-5/6 ">
+        <div className="ml-5 border border-NealabDarkRed shadow-xl rounded w-1/2 h-5/6 ">
             <h1 className="text-center mt-2">Add New Review</h1>
 
             {/* New Photo */}
-                        <div className="flex flex-col ml-2">
-                            <p className="font-bold">To add new new review:</p>
-                            <p className="">Go to a facebook review, press the three dots, click embed.</p>
-                            <p className="">Copy just the src within the quotations</p>
-                            <p className="">Should end in width=500</p>
-                         <p className="">Paste it within the field below</p>
-                        <label htmlFor="iFrame" className="my-2 font-bold">Paste iFrame src:</label>
+                        <form onSubmit={(e) => {
+                        e.preventDefault();
+                        storeReview(name, date, text, image)
+                        .then(() => {
+                            props.setReload(!props.reload);
+                            ClearField("name");
+                            ClearField("date")
+                            ClearField("text")
+                            ClearField("photo-select")
+                        })
 
+                    }} className="flex flex-col ml-2"> 
+                        <label htmlFor="name" className="mt-2 font-bold">Name:</label>
+                        <input required onChange={(e) => {
+                            setName(e.target.value)
+                        } } type="text" id="name" className="rounded border border-NealabDarkRed w-3/4" />
+                        <label htmlFor="date" className="mt-2 font-bold">Date:</label>
+                        <input required onChange={(e) => {
+                            setDate(e.target.value)
+                        } } type="date" id="date" className="rounded border border-NealabDarkRed w-3/4" />
+     
+                        <label htmlFor="text" className="mt-2 font-bold">Text:</label>
                         <div className="flex flex-row justify-between">
                         <textarea onChange={(e) => {
-                            setIframe(e.target.value)
-                        }} id="iFrame" type="text" className="rounded border border-NealabDarkRed" required></textarea>
-               <button onClick={() => {
-                   storeReview(iFrame)
-                   .then(() => {
-                       ClearField("iFrame")
-                       props.setReload(!props.reload)
-                   })
-               }} className="mr-2">{Logos.add}</button>
-                        </div>
+                            setText(e.target.value)
+                        }} id="text" type="text" className="rounded border border-NealabDarkRed w-3/4" required></textarea>
                
-                </div>
-                         <p className="mt-5 mx-2">If the review is not visible, delete it and copy paste the src correctly.</p>
+                        </div>
+                        <label htmlFor="photo-select" className="font-bold mt-2">Select portfolio photo: </label>
+                    <select onChange={(e) => {
+                                    setImage(e.target.value)
+                                }} name="photo-select" id="photo-select" className="border border-NealabDarkRed rounded w-3/4 py-1">
+                        <option></option>
+
+                        {photos ? photos.map((photo, i) => {
+                            return (
+                                <option key={i} value={photo.url}>{photo.name}</option>
+
+                            )
+                        }) : null}
+                    </select>
+                    <button  className="mt-2"> {Logos.add} </button>
+                    </form>
 
 
 
@@ -53,3 +88,15 @@ function ClearField(id) {
     document.getElementById(id).value = "";
 
 }
+
+{/* <p className="">Or</p>
+                <p className="text-red-400">Photos need to be 1200x1200 px</p>
+
+                    <label htmlFor="link" className="mt-2 font-bold">Upload new:</label>
+                        <input onChange={(e)=>{setUploadImage(e.target.files[0])}} id="link" type="file" className="border-NealabDarkRed w-3/4 mt-1" />
+               
+                        <button onClick={() => {
+                        
+                        storeReview(name, date, text, image, uploadImage);
+
+                    }} className="mt-2"> {Logos.add} </button> */}
