@@ -88,15 +88,3 @@ function ClearField(id) {
     document.getElementById(id).value = "";
 
 }
-
-{/* <p className="">Or</p>
-                <p className="text-red-400">Photos need to be 1200x1200 px</p>
-
-                    <label htmlFor="link" className="mt-2 font-bold">Upload new:</label>
-                        <input onChange={(e)=>{setUploadImage(e.target.files[0])}} id="link" type="file" className="border-NealabDarkRed w-3/4 mt-1" />
-               
-                        <button onClick={() => {
-                        
-                        storeReview(name, date, text, image, uploadImage);
-
-                    }} className="mt-2"> {Logos.add} </button> */}

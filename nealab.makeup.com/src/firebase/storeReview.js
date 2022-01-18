@@ -1,4 +1,4 @@
-import { storage, db } from "./firebase";
+import { db } from "./firebase";
 
 
 export async function storeReview(name, date, text, photo){

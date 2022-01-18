@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        'customHeight' : "calc(100vh - 57px)"
+        'customHeight' : "calc(100vh - 77px)"
       },
       colors: {
         NealabDarkRed : '#2E1114',
