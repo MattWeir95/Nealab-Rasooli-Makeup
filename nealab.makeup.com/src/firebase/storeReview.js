@@ -1,12 +1,22 @@
-import { db } from "./firebase";
+import { storage, db } from "./firebase";
 
 
-export async function storeReview(iFrame){
+export async function storeReview(name, date, text, photo){
 
-    var key=  Math.floor(Math.random() * 10000).toString();
-    
-    if(iFrame){
-        db.collection("reviews").doc(key).set({iFrame: iFrame, key: key});
+ 
+    var key = Math.floor(Math.random() * 100000).toString();
+
+    if(name && date && text){
+        var stringDate = date.toString();
+
+        if(photo){
+            db.collection("reviews").doc(key).set({date: stringDate, name: name, text: text, photo: photo, key: key});
+
+        }else{
+            db.collection("reviews").doc(key).set({date: stringDate, name: name, text: text, photo: "no-photo", key: key});
+
+        }
+
     }
 
     

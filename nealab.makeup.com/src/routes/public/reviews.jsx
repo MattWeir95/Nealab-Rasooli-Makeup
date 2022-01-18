@@ -2,11 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import Header from "../../components/Header";
 import NavMenu from "../../components/NavMenu";
 import { db } from "../../firebase/firebase";
+import getLogos from "../../resources/Logos";
 export default function Reviews() {
   const [menu, setMenu] = useState(false);
   const [reviews, setReviews] = useState();
 
   const menuNode = useRef();
+
+  var Logo = getLogos();
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClick);
@@ -23,15 +26,12 @@ export default function Reviews() {
         setReviews(data);
       });
 
-          return () => {
-        document.removeEventListener("mousedown", handleClick);
-      };
-
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
   }, []);
 
   const handleClick = (e) => {
-    
-
     if (menuNode.current.contains(e.target)) {
       return;
     } else {
@@ -41,51 +41,53 @@ export default function Reviews() {
 
   return (
     <div className="font-Rasa text-NealabDarkPink h-screen w-full">
-        <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
+      <NavMenu node={menuNode} setMenu={setMenu} menu={menu} />
 
       <div
-      className={
-        menu
-          ? "opacity-50 transition-opacity ease-in-out duration-500 h-full"
-          : "opacity-100 transition-opacity ease-in-out duration-500 h-full"
-      }
-        >
-      
-          <div id="fb-root"></div>
-          <script
-            async
-            defer
-            crossOrigin="anonymous"
-            src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0"
-            nonce="LoyPs2Dr"
-          ></script>
-          <div className="pt-5 px-5">
-            <Header menu={menu} setMenu={setMenu} />
-          </div>
-          <div
-            id="reviews"
-            className="flex flex-row flex-wrap mt-10 justify-center h-5/6 mx-1 overflow-y-auto overflow-x-hidden"
-          >
-            {reviews
-              ? reviews.map((review, i) => {
-                  return (
-                    <div key={i} className="mx-4">
-                      <iframe
-                        title={review.key}
-                        src={review.iFrame}
-                        width="335"
-                        height="350"
-                        scrolling="no"
-                        frameBorder="0"
-                        allowFullScreen={true}
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      ></iframe>
-                    </div>
-                  );
-                })
-              : null}
-          </div>
+        className={
+          menu
+            ? "opacity-50 transition-opacity ease-in-out duration-500 h-full"
+            : "opacity-100 transition-opacity ease-in-out duration-500 h-full"
+        }
+      >
+        <div className="pt-5 px-5">
+          <Header menu={menu} setMenu={setMenu} />
         </div>
+
+        {/* Page div */}
+        <div id="reviews" className="flex flex-col w-full h-5/6 mt-4  lg:flex-row lg:flex-wrap lg:flex overflow-y-auto">
+          {reviews
+            ? reviews.map((review, i) => {
+                return (
+                  <div key={i} className="flex flex-row w-full h-3/4 lg:h-1/3 mt-4 justify-center items-center lg:w-1/3">
+                    <div className="bg-NealabLightPurple h-full w-full rounded mx-4 flex justify-center items-center my-2">
+                      <div className="flex-col  flex items-center justify-center  md:flex-row lg:flex-row md:justify-between lg:justify-between ">
+                      {review.photo !== "no-photo" ? <img
+                          src={review.photo}
+                          alt={review.name}
+                          className="w-1/5 md:w-1/6 lg:w-1/4 rounded-full mt-1 md:ml-2 lg:ml-2 "
+                        /> : null}
+                        <div className="mx-2 flex flex-col justify-center items-center lg:mb-7">
+                          <p className="font-bold text-center mt-2 text-sm">
+                            {review.name}
+                          </p>
+                          <div className="text-center text-xs shadow-xl bg-NealabPink text-white rounded p-2 mt-1">
+                            <div className="flex flex-row justify-between">
+                              {Logo.quote}
+                              {Logo.quoteReversed}
+                            </div>
+                            {review.text}
+                            <p className="text-left text-xs mt-1">{review.date}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            : null}
+        </div>
+      </div>
     </div>
   );
 }
