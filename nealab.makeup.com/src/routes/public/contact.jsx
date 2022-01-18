@@ -92,7 +92,7 @@ export default function Contact() {
             </div>
             <p className="mt-3 md:mt-10">nealab.makeup@gmail.com</p>
            
-            <p className="mt-3">0452519296</p>
+            <p className="">0452519296</p>
 
           </div>
   
