@@ -7,8 +7,6 @@ export default function AdminReviews(){
     const [reload, setReload] = useState();
     return (
         <div className="font-Rasa text-NealabDarkPink h-screen w-full">
-                 <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="LoyPs2Dr"></script>
         <div className="pt-5 px-5 ">
         <Header />
 

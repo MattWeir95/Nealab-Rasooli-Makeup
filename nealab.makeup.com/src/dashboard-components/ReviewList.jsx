@@ -4,7 +4,7 @@ import { DeleteReview } from "../firebase/storeReview";
 import getLogos from "../resources/Logos";
 export default function ReviewList(props){
     const [reviews,setReviews] = useState();
-    var Logos = getLogos();
+    var Logo = getLogos();
     useEffect(() => {
         let data = [];
         db.collection("reviews")
@@ -23,28 +23,51 @@ export default function ReviewList(props){
    
         
            
-                    <div id="reviews" className="flex flex-row flex-wrap justify-center h-5/6 overflow-y-auto overflow-x-hidden w-3/4 mr-5">
+                    <div id="reviews" className="border border-black overflow-y-auto h-5/6 w-1/2 mx-2 rounded shadow flex flex-wrap items-center justify-center">
                         
+                        {reviews
+            ? reviews.map((review, i) => {
+                return (
+                  <div key={i} className="flex flex-col items-center justify-center w-full h-1/3 lg:h-1/2  lg:w-1/3 my-4 mx-2 ">
+
+                    <div className="bg-NealabLightPurple h-full w-full  mx-4 flex justify-center items-center">
+                      <div className="flex-col flex items-center justify-center">
+                    {review.photo !== "no-photo" ? <img
+                          src={review.photo}
+                          alt={review.name}
+                          className="w-1/3 rounded-full mt-2"
+                        /> : null}
+                        
+                        <div className="mx-2 flex flex-col justify-center items-center ">
+                          <p className="font-bold text-center mt-2 text-sm">
+                            {review.name}
+                          </p>
+                          <div className="text-center text-xs shadow-xl bg-NealabPink text-white rounded p-2 mb-2">
+                            <div className="flex flex-row justify-between">
+                              {Logo.quote}
+                              {Logo.quoteReversed}
+                            </div>
+                            {review.text}
+                            <p className="text-left text-xs mt-1">{review.date}</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <button onClick={() => {
+                      DeleteReview(review.key)
+                      .then(() => {
+                        props.setReload(!props.reload)
+                      })
+                    }} className=" w-full bg-red-400 flex justify-center text-black py-1">{Logo.cross} </button>
+
+                  </div>
+                );
+              })
+            : null}
+         
                        
-                        {reviews ? reviews.map((review, i) => {
-    return( 
-        <div key={i} className="mx-1 hover:opacity-70">
-            <button onClick={() => {
-                DeleteReview(review.key)
-                .then(() => {
-                    props.setReload(!props.reload)
-                })
-            }} className="flex items-center justify-center w-full text-NealabDarkRed py-1 hover:bg-red-400"> 
-            <div className="hover:scale-125">
-         {Logos.cross}
-
-            </div>
-            </button>
-
-         <iframe title={review.key} src={review.iFrame} width="340" height="350" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
-            )
-        }): null}
+                        
                         
                     </div>
            )
