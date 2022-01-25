@@ -30,6 +30,7 @@ export default function Services() {
         });
       })
       .then((e) => {
+        
         setServiceList(data);
       });
 
@@ -78,7 +79,7 @@ export default function Services() {
           </div>
           <div className="block ml-auto mr-auto w-4/5 md:w-3/4 lg:w-1/2 mt-10 h-4/6">
             <div id="portfolio" className="h-4/6 overflow-y-auto px-4">
-              {serviceList.map((service, i) => {
+              {serviceList ? serviceList.map((service, i) => {
                 return (
                   <div key={i} className="mb-2">
                     <h1 className="text-NealabDarkRed font-semibold">
@@ -99,7 +100,7 @@ export default function Services() {
                     </div>
                   </div>
                 );
-              })}
+              }) : null}
             </div>
           </div>
           <div className="text-xl flex justify-center items-center">
@@ -113,3 +114,5 @@ export default function Services() {
     </div>
   );
 }
+
+

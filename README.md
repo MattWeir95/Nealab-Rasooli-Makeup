@@ -14,4 +14,3 @@ Admins are able to see all booking enquiries made using https://nealabmakeup.com
 Admins are able to upload new photos for the portfolio/photo slider. 
 Admins are able to add/remove/edit services.
 Admins are able to add/remove new reviews. 
-
