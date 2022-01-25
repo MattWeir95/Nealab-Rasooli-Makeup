@@ -22,7 +22,7 @@ https://www.figma.com/file/vP682iDQGvBNhJVDK22Keb/Nealab-Rasooli---Makeup?node-i
  
 Mobile Home Screen             |  Mobile Home Menu | Desktop Home Screen 
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="screenshots/MobileHome.jpg" alt="drawing" width="200"/>    |  <img src="screenshots/MobileMenu.jpg" alt="drawing" width="200"/> | <img src="screenshots/DesktopHomeScreen.jpg" alt="drawing" width="400"/>
+<img src="screenshots/MobileHome.jpg" alt="drawing" width="200"/>    |  <img src="screenshots/MobileMenu.jpg" alt="drawing" width="200"/> | <img src="screenshots/DesktopHomeScreen.png" alt="drawing" width="400"/>
 :-------------------------:|:-------------------------:|:-------------------------:
 
 
