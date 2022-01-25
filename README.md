@@ -19,5 +19,7 @@ Admins are able to add/remove new reviews.
 https://www.figma.com/file/vP682iDQGvBNhJVDK22Keb/Nealab-Rasooli---Makeup?node-id=0%3A1 
 
 ## Responsive
-<img src="screenshots/MobileHome.jpg" alt="drawing" width="200"/>  
-<img src="screenshots/MobileMenu.jpg" alt="drawing" width="200"/>  
+ 
+Mobile Home Screen             |  Mobile Home Menu
+:-------------------------:|:-------------------------:
+![Mobile Home](screenshots/MobileHome.jpg)  |  ![Mobile Menu](screenshots/MobileMenu.jpg)
